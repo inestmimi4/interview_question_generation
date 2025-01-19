@@ -1,0 +1,11 @@
+.truncation {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tooltip {
+  transition: opacity 0.2s;
+}
+button:hover .tooltip {
+  opacity: 1;
+}

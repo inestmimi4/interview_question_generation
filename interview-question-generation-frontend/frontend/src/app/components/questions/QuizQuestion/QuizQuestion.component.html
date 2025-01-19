@@ -1,0 +1,20 @@
+<div class="container mx-auto border-2 border-gray-300 rounded-lg p-4 bg-white shadow-md mb-8 w-4/5">
+    <div class="bg-blue-100 p-3 rounded-lg mt-0 mb-4 ">
+        <p class="question text-xl font-semibold text-neutral-950 my-4 ">{{ question.text }}</p>
+    </div>
+    <ul class="space-y-4">
+        @for(option of question.options ; track option) {
+            <li>
+                <label class="inline-flex items-center p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200">
+                    <input
+                            type="checkbox"
+                            class="form-checkbox h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                            (change)="onOptionChange(option, $event)"
+                    />
+                    <span class="ml-3 text-gray-700 font-medium">{{ option }}</span>
+                </label>
+            </li>
+        }
+    </ul>
+</div>
+

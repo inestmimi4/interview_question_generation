@@ -1,0 +1,23 @@
+<div class=" sm:px-4 md:px-7 sm:py-14">
+    <main class=" border border-b-white container mx-auto max-w-screen-lg h-full rounded-lg">
+        <article aria-label="FileInterface Upload Modal"
+                 class="relative h-full flex flex-col bg-white shadow-xl rounded-md">
+            <section class=" overflow-auto p-8 w-full h-full flex flex-col">
+                <div>
+                <app-files-upload (fileSelected)="onFileSelected($event)"
+                                  (uploadFile)="onUpload()"></app-files-upload>
+                </div>
+                <div>
+                <app-files-list [files]="files"
+                                (fileDeleted)="deleteFile($event) "
+                                (allFilesDeleted)="deleteAllFiles()"
+                                (search)="onSearch($event)"
+                                (deleteSelected)="deleteSelectedFiles($event)"
+                                (viewFile)="navigateToQuizList()">>
+                </app-files-list>
+                </div>
+            </section>
+        </article>
+    </main>
+</div>
+<app-custom-snackbar [message]="snackbarMessage" [type]="snackbarType"></app-custom-snackbar>

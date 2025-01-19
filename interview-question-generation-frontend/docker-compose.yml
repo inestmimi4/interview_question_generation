@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "4200:80"
+    networks:
+      - interview question
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3001:3000"
+    networks:
+      - interview question
+
+networks:
+  interview question:
+    driver: bridge

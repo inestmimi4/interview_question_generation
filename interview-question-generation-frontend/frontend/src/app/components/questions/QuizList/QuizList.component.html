@@ -1,0 +1,8 @@
+<div><app-timer ></app-timer></div>
+<div class="container mx-auto py-6">
+    @for(question of questions ; track question.id){
+        <div><app-QuizQuestion  [question]="question" (optionChange)="onOptionChange($event.questionId, $event.option, $event.isChecked)"></app-QuizQuestion></div>}
+</div>
+<button class="button" (click)="onSubmit()">
+    Submit
+</button>

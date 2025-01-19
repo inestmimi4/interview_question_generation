@@ -1,0 +1,19 @@
+.timer-container {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  position: fixed;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.timer {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+}

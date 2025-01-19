@@ -1,0 +1,30 @@
+<div class="border-2 border-gray-300 rounded-lg p-4 bg-white shadow-md mb-4">
+    <div class="bg-blue-100 p-3 rounded-lg mb-4">
+        <p class="question text-xl font-semibold text-neutral-950">{{ question.text }}</p>
+    </div>
+    <ul class="space-y-2">
+        @for(option of question.options; track option){
+        <li >
+            <label class="inline-flex items-center p-2 rounded-lg">
+                <input
+                        type="checkbox"
+                        [checked]="selectedOptions.includes(option)"
+                        class="form-checkbox h-5 w-5"
+                        disabled
+                />
+                <span
+                        class="ml-3 text-gray-700"
+                        [ngClass]="{
+                        'text-green-600 font-bold': correctAnswers.includes(option),
+                        'text-red-600': selectedOptions.includes(option) && !correctAnswers.includes(option)
+                    }">
+                    {{ option }}
+                </span>
+            </label>
+        </li>}
+    </ul>
+    @if(isCorrect){
+    <p class="text-green-600">Correct Answer</p>}
+    @if(!isCorrect &&  userResponses.length >= 0){
+    <p  class="text-red-600">Incorrect Answer</p>}
+</div>

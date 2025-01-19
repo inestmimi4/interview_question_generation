@@ -1,0 +1,15 @@
+.container {
+  transition: background-color 0.3s ease;
+}
+
+input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+
+.bg-green-500 {
+  background-color: #48bb78; /* Couleur verte */
+}
+
+.bg-red-500 {
+  background-color: #f56565; /* Couleur rouge */
+}

@@ -1,0 +1,38 @@
+<div class="flex flex-col items-center space-y-3 p-3 bg-white border border-gray-300 rounded-lg  ">
+        <div class="relative flex items-center">
+            <input
+                    type="file"
+                    (change)="onFileSelected($event)"
+                    id="file-upload"
+                    class="absolute inset-0 opacity-0 cursor-pointer"
+            />
+            <button
+                    type="button"
+                    class="flex items-center justify-center px-4 py-2 bg-gray-600 hover:bg-gray-500 border border-gray-600 rounded-md font-semibold text-sm text-white  active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 cursor-pointer"
+                    for="file-upload"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-4-4z" />
+                    <path d="M14 2v6h6" />
+                </svg>
+                Browse file
+            </button>
+            <div class="flex items-center ml-2 text-gray-700 border border-black px-4 py-1.5 rounded-md ">
+               <div id="file-icon" class="w-4 h-4 mr-2 "></div>
+               <span id="file-name" >No file selected</span>
+            </div>
+        </div>
+
+        <button
+                (click)="onUpload()"
+                class="px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition ease-in-out duration-150"
+        >
+            Upload now
+        </button>
+    </div>
+
+
+
+
+
+

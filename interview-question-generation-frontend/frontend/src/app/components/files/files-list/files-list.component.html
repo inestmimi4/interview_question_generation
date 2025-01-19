@@ -1,0 +1,125 @@
+<div class="max-w-4xl mx-auto">
+    <div class="relative overflow-x-auto  sm:rounded-lg">
+        <div class="p-4">
+            <label for="table-search" class="sr-only">Search</label>
+            <div class="flex items-center justify-between space-x-4">
+                <div class="relative mt-1">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <input type="text" id="table-search" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                           placeholder="Search for files">
+
+                </div>
+
+                <button (click)="deleteSelectedFiles()"
+                        class="bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 pl-5 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    Delete Selected
+                </button>
+
+            </div>
+        </div>
+        @if(files.length === 0){
+
+            <li id="empty" class="h-full w-full text-center flex flex-col justify-center items-center">
+                <img class="mx-auto w-32" src="https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png" alt="no data" />
+                <span class="text-small text-gray-500">No files selected</span>
+            </li>
+            }
+        @else{<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox"
+                               [checked]="allSelected"
+                               (change)="toggleAllSelection()"
+                               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th>
+                @for (header of headers; track header){
+                <th  [attr.scope]="header.key === 'select' ? 'col' : null"
+                    class="px-6 py-3">
+                    {{ header.label }}
+                </th>}
+
+            </tr>
+            </thead>
+            <tbody>
+                @for (file of files; track file) {
+                    <tr
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-table-search-1" type="checkbox"
+                                       [checked]="isSelected(file.id)"
+                                       (change)="toggleFileSelection(file.id)"
+                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                            </div>
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <div class="truncation w-40">{{ file.name }}</div>
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ file.extension }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ file.size }}
+                        </td>
+
+                        <td class="px-6 py-4 text-right">
+                            <div class="flex items-center justify-end space-x-4">
+                            <button class="text-[#07074D] relative  hover:underline focus:outline-none" (click)="onDelete(file.id)">
+                                <app-tooltip text="Delete">
+
+                                <svg
+                                        width="10"
+                                        height="10"
+                                        viewBox="0 0 10 10"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M0.279337 0.279338C0.651787 -0.0931121 1.25565 -0.0931121 1.6281 0.279338L9.72066 8.3719C10.0931 8.74435 10.0931 9.34821 9.72066 9.72066C9.34821 10.0931 8.74435 10.0931 8.3719 9.72066L0.279337 1.6281C-0.0931125 1.25565 -0.0931125 0.651788 0.279337 0.279338Z"
+                                            fill="currentColor"
+                                    />
+                                    <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M0.279337 9.72066C-0.0931125 9.34821 -0.0931125 8.74435 0.279337 8.3719L8.3719 0.279338C8.74435 -0.0931127 9.34821 -0.0931123 9.72066 0.279338C10.0931 0.651787 10.0931 1.25565 9.72066 1.6281L1.6281 9.72066C1.25565 10.0931 0.651787 10.0931 0.279337 9.72066Z"
+                                            fill="currentColor"
+                                    />
+
+                                </svg>
+                                </app-tooltip>
+                            </button>
+                                <button class="text-[#07074D] relative hover:underline focus:outline-none"(click)="navigateToQuizList()">
+
+                                    <app-tooltip text="View">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 4.5C6.48 4.5 2 8.5 2 12s4.48 7.5 10 7.5S22 15.5 22 12 17.52 4.5 12 4.5zm0 10a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                                        <path d="M12 14.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                                    </svg>
+                                    </app-tooltip>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>}
+    </div>
+</div>
+

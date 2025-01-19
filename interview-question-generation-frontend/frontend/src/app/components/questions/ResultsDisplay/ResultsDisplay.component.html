@@ -1,0 +1,30 @@
+<div class="container mx-auto py-6">
+
+        <div class="border-2 border-gray-300 rounded-lg  bg-white shadow-md p-6  w-full max-w-sm mx-auto text-center mb-6">
+            <h2 class="text-xl font-bold text-blue-400 mb-4 ">Your Score</h2>
+            <div class="text-5xl font-extrabold text-green-500 mb-6">
+                {{ score }}/{{ totalQuestions }}
+            </div>
+
+                @if(score >= totalQuestions / 2){
+
+                    <p class="text-green-700-600 mb-4">Well done! You've completed the test.</p>
+               }
+                @else {
+
+                    <p class="text-red-600 mb-4">Don't worry, keep practicing and you'll get better!</p>
+                }
+
+        </div>
+
+    @for(question of questions;track question.id){
+    <app-Response
+
+            [question]="question"
+            [userResponses]="userResponses"
+            [correctAnswers]="getCorrectAnswers(question)"
+            [selectedOptions]="getSelectedOptions(question.id)"
+            [isCorrect]="isCorrect(question, getSelectedOptions(question.id))">
+    </app-Response>}
+
+</div>

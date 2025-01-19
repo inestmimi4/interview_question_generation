@@ -1,0 +1,12 @@
+@if(message){
+<div  class="fixed bottom-4 right-4 bg-green-700 text-white border border-gray-600 shadow-lg p-4 flex items-center space-x-3 rounded-lg transition-opacity duration-300 ease-in-out">
+    @if(type === 'success'){
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-green-500 h-6 w-6 shrink-0">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+    </svg>}
+    @else if(type === 'error'){
+    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-red-500 h-6 w-6 shrink-0">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>}
+    <span>{{ message }}</span>
+</div>}

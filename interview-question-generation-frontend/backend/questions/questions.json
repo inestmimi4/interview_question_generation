@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "text": "What is the purpose of the 'docker-compose' command?",
+    "options": [
+      "To build Docker images",
+      "To manage multiple Docker containers",
+      "To deploy Docker containers to a cloud service",
+      "To monitor the performance of Docker containers"
+    ],
+    "answers": [1],
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "text": "Which command would you use to delete a local Git branch?",
+    "options": [
+      "git branch -d <branch_name>",
+      "git branch -m <branch_name>",
+      "git push origin --delete <branch_name>",
+      "git checkout -b <branch_name>"
+    ],
+    "answers": [0],
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "text": "Which of the following are Angular directives?",
+    "options": [
+      "@if",
+      "@for",
+      "*ngClass",
+      "*ngSwitch"
+    ],
+    "answers": [0, 1, 2, 3],
+    "type": "multiple"
+  },
+  {
+    "id": 4,
+    "text": "What does the 'HttpClient' service in Angular provide?",
+    "options": [
+      "Allows sending HTTP requests to a server",
+      "Enables WebSocket connections",
+      "Provides caching mechanisms",
+      "Handles automatic retries on failed requests"
+    ],
+    "answers": [0],
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "text": "Which command is used to push your local commits to a remote Git repository?",
+    "options": [
+      "git commit",
+      "git push",
+      "git merge",
+      "git add"
+    ],
+    "answers": [1],
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "text": "Which of the following commands can be used to view the commit history in Git?",
+    "options": [
+      "git log",
+      "git status",
+      "git commit",
+      "git show"
+    ],
+    "answers": [0, 3],
+    "type": "multiple"
+  },
+  {
+    "id": 7,
+    "text": "What is the role of 'ngOnInit' in Angular?",
+    "options": [
+      "It's a lifecycle hook called after Angular has initialized all data-bound properties.",
+      "It's used to create a new component.",
+      "It handles Angular's routing mechanism.",
+      "It initializes HTTP requests in Angular."
+    ],
+    "answers": [0],
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "text": "Which of the following commands can be used to remove all stopped containers in Docker?",
+    "options": [
+      "docker rm -f",
+      "docker rmi",
+      "docker system prune",
+      "docker rm <container_id>"
+    ],
+    "answers": [2],
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "text": "Which Docker command is used to remove all stopped containers?",
+    "options": [
+      "docker rm -f",
+      "docker rmi",
+      "docker system prune",
+      "docker rm <container_id>"
+    ],
+    "answers": [2],
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "text": "Which command is used to build an Angular project for production?",
+    "options": [
+      "ng build --prod",
+      "ng serve --prod",
+      "ng generate --prod",
+      "ng deploy --prod"
+    ],
+    "answers": [0],
+    "type": "single"
+  }
+]
+

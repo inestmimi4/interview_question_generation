@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Delete file</h2>
+<mat-dialog-content>
+    Would you like to delete {{ data.message }}?
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">No</button>
+    <button mat-button (click)="onConfirm()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
+
